@@ -29,12 +29,13 @@ Every resource belongs to an organization, scoped by API key.
 All API requests require a Bearer token:
 
 ```
-Authorization: Bearer chr_sk_live_...
+Authorization: Bearer chr_sk_...
 ```
 
 Key prefixes:
-- `chr_sk_live_` — production keys (real data)
-- `chr_sk_test_` — test keys (sandbox, isolated data)
+- `chr_sk_` — org-level keys (full account access)
+- `chr_ak_` — agent-scoped keys (limited to one agent's calendars / events)
+- Legacy `chr_sk_live_*` / `chr_ak_live_*` keys issued before the test-mode removal still authenticate.
 
 ## Entity ID Prefixes
 
