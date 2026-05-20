@@ -158,7 +158,7 @@ function verify(rawBody: string, headers: Record<string, string>, secret: string
 {
   "type": "proposal.created",
   "data": {
-    "id": "prp_abc123",
+    "id": "spr_abc123",
     "org_id": "org_ghi789",
     "organizer_agent_id": "agt_abc123",
     "title": "Quarterly Planning",
@@ -180,7 +180,7 @@ function verify(rawBody: string, headers: Record<string, string>, secret: string
 {
   "type": "proposal.confirmed",
   "data": {
-    "id": "prp_abc123",
+    "id": "spr_abc123",
     "org_id": "org_ghi789",
     "status": "confirmed",
     "confirmed_time": {

@@ -1,6 +1,6 @@
 {
   "name": "chronary",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Chronary Calendar API — manage calendars, events, and availability for AI agents",
   "author": "Chronary",
   "homepage": "https://chronary.ai",
@@ -18,7 +18,7 @@
   "mcpServers": {
     "chronary": {
       "command": "npx",
-      "args": ["-y", "chronary-mcp"],
+      "args": ["-y", "@chronary/mcp"],
       "env": {
         "CHRONARY_API_KEY": ""
       }

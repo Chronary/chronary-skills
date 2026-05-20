@@ -22,6 +22,8 @@ Schedule a new event on a Chronary calendar. Optionally checks availability firs
 /schedule-event "Planning" cal_def456 next Monday 10am 1 hour
 ```
 
+When installed via the Claude Code plugin marketplace (`/plugin install chronary@chronary`), the command is namespaced — call it as `/chronary:schedule-event` instead.
+
 ## Reference
 
 See [API Reference](../references/api-reference.md) for `client.events.create()` and [Examples](../references/examples.md) for conflict detection patterns.

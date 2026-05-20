@@ -1,19 +1,20 @@
 {
   "name": "chronary",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Chronary Calendar API — manage calendars, events, and availability for AI agents",
-  "author": "Chronary",
+  "author": {
+    "name": "Chronary",
+    "url": "https://chronary.ai"
+  },
   "homepage": "https://chronary.ai",
+  "repository": "https://github.com/Chronary/chronary-skills",
+  "license": "MIT",
+  "keywords": ["chronary", "calendar", "scheduling", "mcp", "agent", "ai"],
   "skills": [
     "skills/chronary-api",
     "skills/chronary-toolkit",
     "skills/chronary-mcp",
     "skills/chronary-cli"
-  ],
-  "references": [
-    "references/api-reference.md",
-    "references/examples.md",
-    "references/webhook-events.md"
   ],
   "commands": [
     "commands/check-availability.md",
@@ -23,7 +24,7 @@
   "mcpServers": {
     "chronary": {
       "command": "npx",
-      "args": ["-y", "chronary-mcp"],
+      "args": ["-y", "@chronary/mcp"],
       "env": {
         "CHRONARY_API_KEY": ""
       }

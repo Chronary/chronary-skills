@@ -1,0 +1,23 @@
+{
+  "name": "chronary",
+  "description": "Chronary Calendar API skills and IDE plugins — calendar infrastructure for AI agents",
+  "owner": {
+    "name": "Chronary",
+    "email": "engineering@chronary.ai"
+  },
+  "plugins": [
+    {
+      "name": "chronary",
+      "source": "./",
+      "description": "Chronary Calendar API — manage calendars, events, and availability for AI agents",
+      "author": {
+        "name": "Chronary"
+      },
+      "homepage": "https://chronary.ai",
+      "repository": "https://github.com/Chronary/chronary-skills",
+      "license": "MIT",
+      "keywords": ["chronary", "calendar", "scheduling", "mcp", "agent", "ai"],
+      "category": "productivity"
+    }
+  ]
+}
