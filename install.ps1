@@ -51,10 +51,8 @@ try {
 
   function Install-Codex {
     Copy-Skills -Dest (Join-Path $env:USERPROFILE '.codex\skills')
-    $agentsSrc = Join-Path $TmpDir 'AGENTS.md'
-    if (Test-Path $agentsSrc) {
-      Copy-Item -Path $agentsSrc -Destination (Join-Path $env:USERPROFILE '.codex\AGENTS.md') -Force
-    }
+    Write-Host "  Tip: Codex also reads AGENTS.md per-project. Drop one into a project root with:"
+    Write-Host "       iwr -useb https://raw.githubusercontent.com/Chronary/chronary-skills/main/AGENTS.md -OutFile \path\to\project\AGENTS.md"
   }
 
   switch ($Target.ToLower()) {

@@ -22,6 +22,8 @@ Manage Chronary calendars — create new calendars, list existing ones, update p
 /manage-calendar delete cal_def456
 ```
 
+When installed via the Claude Code plugin marketplace (`/plugin install chronary@chronary`), the command is namespaced — call it as `/chronary:manage-calendar` instead.
+
 ## Reference
 
 See [API Reference](../references/api-reference.md) for `client.calendars.*` method signatures.

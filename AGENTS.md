@@ -32,7 +32,7 @@ When asked about Chronary, load the appropriate skill from this repository:
 
 ## Conventions to Follow
 
-- **ID prefixes:** `org_` (organization), `agt_` (agent), `cal_` (calendar), `evt_` (event), `whk_` (webhook), `ics_` (iCal subscription), `prp_` (scheduling proposal), `prs_` (proposal response). iCal feeds have no ID prefix — they're addressed by the `ical_token` on a calendar.
+- **ID prefixes:** `org_` (organization), `agt_` (agent), `cal_` (calendar), `evt_` (event), `whk_` (webhook), `ics_` (iCal subscription), `spr_` (scheduling proposal), `slt_` (proposal slot), `rsp_` (proposal response). iCal feeds have no ID prefix — they're addressed by the `ical_token` on a calendar.
 - **API keys:** Use `chr_sk_*` for org-level operations and `chr_ak_*` when acting on behalf of a specific agent.
 - **Webhook events** follow `entity.action` (singular noun): for example `event.created`, `calendar.deleted`, `proposal.confirmed`.
 - **MCP server:** Distributed as `@chronary/mcp` on npm. Run with `npx -y @chronary/mcp` and set `CHRONARY_API_KEY` via env or `--api-key`.

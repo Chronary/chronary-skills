@@ -46,8 +46,9 @@ Key prefixes:
 | `whk_` | Webhook |
 | `ics_` | iCal Subscription |
 | `org_` | Organization |
-| `prp_` | Scheduling Proposal |
-| `prs_` | Proposal Response |
+| `spr_` | Scheduling Proposal |
+| `slt_` | Proposal Slot |
+| `rsp_` | Proposal Response |
 
 ## Endpoints
 

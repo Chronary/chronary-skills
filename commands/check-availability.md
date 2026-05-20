@@ -20,6 +20,8 @@ Check availability for the specified agents across the given time range using th
 /check-availability agt_abc123 next Monday 30m slots
 ```
 
+When installed via the Claude Code plugin marketplace (`/plugin install chronary@chronary`), the command is namespaced — call it as `/chronary:check-availability` instead.
+
 ## Reference
 
 See [API Reference](../references/api-reference.md) for `client.availability.check()` and `client.availability.forAgent()` method signatures.

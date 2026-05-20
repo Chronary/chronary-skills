@@ -53,8 +53,9 @@ install_codex() {
   local dest="$HOME/.codex/skills"
   mkdir -p "$dest"
   cp -R "$SRC/skills/." "$dest/"
-  cp "$SRC/AGENTS.md" "$HOME/.codex/AGENTS.md" 2>/dev/null || true
   echo "Installed to $dest (Codex user skills)"
+  echo "  Tip: Codex also reads AGENTS.md per-project. Drop one into a project root with:"
+  echo "       curl -fsSL https://raw.githubusercontent.com/Chronary/chronary-skills/main/AGENTS.md -o /path/to/project/AGENTS.md"
 }
 
 case "$TARGET" in

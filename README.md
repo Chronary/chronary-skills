@@ -77,11 +77,11 @@ cp -r .github/skills/* /path/to/your/project/.github/skills/
 
 ### OpenAI Codex
 
-Codex reads `AGENTS.md` at the repo root and `~/.codex/skills/`:
+Codex reads skills from `~/.codex/skills/` (user-level) and `AGENTS.md` per-project from each project's repo root. Install user-level skills, then drop `AGENTS.md` into each project that uses Chronary:
 
 ```bash
 cp -r skills/* ~/.codex/skills/
-cp AGENTS.md ~/.codex/AGENTS.md
+cp AGENTS.md /path/to/your/project/AGENTS.md
 ```
 
 ### Windsurf
