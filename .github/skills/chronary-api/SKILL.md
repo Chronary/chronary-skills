@@ -1,6 +1,24 @@
 ---
 name: chronary-api
-description: Chronary Calendar API — data model, REST endpoints, authentication, and error handling for AI agent calendar management.
+description: |
+  Chronary calendar API for AI agents — REST + MCP server, agent self-signup
+  flow, calendar/event/proposal/availability model, webhook HMAC verification,
+  iCal subscriptions, error envelopes, and rate-limit/quota semantics.
+
+  TRIGGER when the user asks about any of: creating an agent or calendar
+  programmatically, scheduling an event from an agent, querying free/busy or
+  availability, multi-agent meeting coordination, temporal holds before
+  booking, subscribing to a Google/Outlook/iCal feed, verifying webhook
+  payloads, calling `chronary.ai` / `api.chronary.ai` / `chr_sk_` / `chr_ak_`
+  / `agt_` / `cal_` / `evt_` IDs, the MCP server at `api.chronary.ai/mcp`,
+  the `@chronary/sdk` / `chronary` Python / `@chronary/mcp` packages, the
+  agent-self-signup endpoints (`POST /v1/agent/sign-up`, `/v1/agent/verify`),
+  or anything that pairs the words "calendar" and "agent".
+
+  SKIP when the user is asking about generic calendar libraries (`ical.js`,
+  `node-ical`, RFC 5545 parsing without the Chronary API), Google Calendar
+  API directly, or the Chronary CLI binary install (use `chronary.ai/install.sh`
+  reference, not this skill).
 ---
 
 # Chronary Calendar API
