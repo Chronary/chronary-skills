@@ -1,9 +1,9 @@
 {
   "artifact": "skills",
-  "version": "2026.05.29+fef5901",
-  "public_tag": "2026.05.29+fef5901",
-  "private_source_sha": "fef5901750229730ba444df0c0c48671034763b8",
-  "private_release_tag": "public-release/20260529.2-fef5901",
+  "version": "2026.06.04+000087d",
+  "public_tag": "2026.06.04+000087d",
+  "private_source_sha": "000087d1beac149bd60d1f16b8e0e36dbde5c0b3",
+  "private_release_tag": "public-release/20260604.4-000087d",
   "publish_registry": false,
-  "generated_at": "2026-05-29T22:49:13.943Z"
+  "generated_at": "2026-06-04T19:44:56.907Z"
 }
