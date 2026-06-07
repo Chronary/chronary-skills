@@ -9,7 +9,7 @@ Schedule a new event on a Chronary calendar. Optionally checks availability firs
 ## Steps
 
 1. Parse event details from `$ARGUMENTS`
-2. If an agent is associated with the calendar, check availability first using `check_availability`
+2. If an agent is associated with the calendar, check availability first using `find_meeting_time`
 3. If the time slot is free, create the event using `create_event`
 4. If there's a conflict, show the busy blocks and suggest alternative times
 5. Display the created event details

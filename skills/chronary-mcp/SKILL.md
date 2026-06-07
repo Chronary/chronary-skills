@@ -114,18 +114,18 @@ Add to `~/.codeium/windsurf/mcp_config.json`:
 
 ## Available Tools
 
-The MCP server exposes all 23 Chronary toolkit tools. Read-only tools (queries, list operations) are auto-approved by most MCP clients. Write and delete operations require confirmation.
+The MCP server exposes all 47 Chronary toolkit tools. Read-only tools (queries, list operations) are auto-approved by most MCP clients. Write and delete operations require confirmation.
 
-**Auto-approved (read-only):** `list_calendars`, `get_calendar`, `list_events`, `get_event`, `check_availability`, `list_webhooks`, `get_webhook`, `list_ical_subscriptions`, `get_ical_subscription`, `get_usage`
+**Auto-approved (read-only):** `list_calendars`, `get_calendar`, `list_events`, `get_event`, `list_agents`, `get_agent`, `get_availability`, `find_meeting_time`, `get_calendar_context`, `list_proposals`, `get_proposal`, `get_availability_rules`, `list_webhooks`, `get_webhook`, `list_webhook_deliveries`, `list_ical_subscriptions`, `get_ical_subscription`, `list_scoped_keys`, `get_audit_log`, `get_usage`
 
-**Requires confirmation:** `create_calendar`, `update_calendar`, `delete_calendar`, `create_event`, `update_event`, `delete_event`, `create_webhook`, `update_webhook`, `delete_webhook`, `create_ical_subscription`, `update_ical_subscription`, `delete_ical_subscription`, `sync_ical_subscription`
+**Requires confirmation:** `create_calendar`, `update_calendar`, `delete_calendar`, `create_event`, `update_event`, `cancel_event`, `confirm_event`, `release_event`, `create_agent`, `update_agent`, `delete_agent`, `create_proposal`, `respond_to_proposal`, `resolve_proposal`, `cancel_proposal`, `set_availability_rules`, `clear_availability_rules`, `create_webhook`, `update_webhook`, `delete_webhook`, `subscribe_ical`, `update_ical_subscription`, `delete_ical_subscription`, `sync_ical_subscription`, `create_scoped_key`, `revoke_scoped_key`, `accept_terms`
 
 ## Selective Tool Loading
 
 Load only specific tools:
 
 ```bash
-npx -y @chronary/mcp --tools list_calendars,create_event,check_availability
+npx -y @chronary/mcp --tools list_calendars,create_event,find_meeting_time
 ```
 
 ## Troubleshooting

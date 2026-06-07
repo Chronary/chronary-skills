@@ -9,7 +9,7 @@ Check availability for the specified agents across the given time range using th
 ## Steps
 
 1. Parse the agent IDs and time range from `$ARGUMENTS`
-2. Use the Chronary SDK or MCP tool `check_availability` to query free/busy slots
+2. Use the Chronary SDK or MCP tool `find_meeting_time` to query free/busy slots
 3. Present the available time slots in a readable format
 4. If no slots are found, suggest alternative time ranges
 

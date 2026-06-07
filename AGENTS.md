@@ -18,7 +18,7 @@ When asked about Chronary, load the appropriate skill from this repository:
 | Skill | When to use |
 | --- | --- |
 | [`skills/chronary-api/SKILL.md`](skills/chronary-api/SKILL.md) | REST API: data model, endpoints, ID prefixes, error codes, authentication |
-| [`skills/chronary-toolkit/SKILL.md`](skills/chronary-toolkit/SKILL.md) | `@chronary/toolkit` — 23 tools for Vercel AI SDK, OpenAI, LangChain, Mastra, MCP |
+| [`skills/chronary-toolkit/SKILL.md`](skills/chronary-toolkit/SKILL.md) | `@chronary/toolkit` — 47 tools for Vercel AI SDK, OpenAI, LangChain, Mastra, MCP |
 | [`skills/chronary-mcp/SKILL.md`](skills/chronary-mcp/SKILL.md) | `@chronary/mcp` — MCP server setup for Claude Desktop, Cursor, VS Code, Windsurf |
 | [`skills/chronary-cli/SKILL.md`](skills/chronary-cli/SKILL.md) | `chronary` CLI — command reference, scripting patterns |
 
@@ -36,7 +36,7 @@ When asked about Chronary, load the appropriate skill from this repository:
 - **API keys:** Use `chr_sk_*` for org-level operations and `chr_ak_*` when acting on behalf of a specific agent.
 - **Webhook events** follow `entity.action` (singular noun): for example `event.created`, `calendar.deleted`, `proposal.confirmed`.
 - **MCP server:** Distributed as `@chronary/mcp` on npm. Run with `npx -y @chronary/mcp` and set `CHRONARY_API_KEY` via env or `--api-key`.
-- **Read-only tools** (`list_*`, `get_*`, `check_availability`) can be auto-approved by MCP clients. Write/delete tools should require confirmation.
+- **Read-only tools** (`list_*`, `get_*`, `find_meeting_time`) can be auto-approved by MCP clients. Write/delete tools should require confirmation.
 
 ## Do Not
 
