@@ -105,7 +105,7 @@ npm install @chronary/toolkit
 |------|-------------|-----------|-----------------------|
 | `create_scoped_key` | Create an agent-scoped API key (chr_ak_*) that can only act on behalf of a single agent. The plaintext key is returned exactly once. Requires an org-level API key. | No | Yes |
 | `list_scoped_keys` | List all live (non-revoked) agent-scoped API keys for this org. Returns key metadata only — never the plaintext secret. Requires an org-level API key. | Yes | No |
-| `revoke_scoped_key` | Revoke an agent-scoped API key by ID. The key stops authenticating immediately and cannot be un-revoked. Requires an org-level API key. | No | Yes |
+| `revoke_scoped_key` | Revoke an agent-scoped API key by ID. Revocation is permanent (cannot be un-revoked); the key stops authenticating within about a minute. Requires an org-level API key. | No | Yes |
 
 ### Audit Log (1 tool)
 
