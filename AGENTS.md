@@ -18,7 +18,7 @@ When asked about Chronary, load the appropriate skill from this repository:
 | Skill | When to use |
 | --- | --- |
 | [`skills/chronary-api/SKILL.md`](skills/chronary-api/SKILL.md) | REST API: data model, endpoints, ID prefixes, error codes, authentication |
-| [`skills/chronary-toolkit/SKILL.md`](skills/chronary-toolkit/SKILL.md) | `@chronary/toolkit` — 47 tools for Vercel AI SDK, OpenAI, LangChain, Mastra, MCP |
+| [`skills/chronary-toolkit/SKILL.md`](skills/chronary-toolkit/SKILL.md) | `@chronary/toolkit` — 50 tools for Vercel AI SDK, OpenAI, LangChain, Mastra, MCP |
 | [`skills/chronary-mcp/SKILL.md`](skills/chronary-mcp/SKILL.md) | `@chronary/mcp` — MCP server setup for Claude Desktop, Cursor, VS Code, Windsurf |
 | [`skills/chronary-cli/SKILL.md`](skills/chronary-cli/SKILL.md) | `chronary` CLI — command reference, scripting patterns |
 

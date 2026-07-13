@@ -1,11 +1,11 @@
 ---
 name: chronary-toolkit
-description: Chronary Toolkit — 47 pre-built tools with framework adapters for Vercel AI SDK, OpenAI, LangChain, Mastra, and MCP.
+description: Chronary Toolkit — 50 pre-built tools with framework adapters for Vercel AI SDK, OpenAI, LangChain, Mastra, and MCP.
 ---
 
 # Chronary Toolkit
 
-The `@chronary/toolkit` package provides 47 pre-built tools for AI agent frameworks. Each tool maps to Chronary API operations with typed parameters, descriptions, and MCP annotations.
+The `@chronary/toolkit` package provides 50 pre-built tools for AI agent frameworks. Each tool maps to Chronary API operations with typed parameters, descriptions, and MCP annotations.
 
 ```bash
 npm install @chronary/toolkit

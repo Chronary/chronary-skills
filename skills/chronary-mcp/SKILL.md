@@ -114,7 +114,7 @@ Add to `~/.codeium/windsurf/mcp_config.json`:
 
 ## Available Tools
 
-The MCP server exposes all 47 Chronary toolkit tools. Read-only tools (queries, list operations) are auto-approved by most MCP clients. Write and delete operations require confirmation.
+The MCP server exposes all 50 Chronary toolkit tools. Read-only tools (queries, list operations) are auto-approved by most MCP clients. Write and delete operations require confirmation.
 
 **Auto-approved (read-only):** `list_calendars`, `get_calendar`, `list_events`, `get_event`, `list_agents`, `get_agent`, `get_availability`, `find_meeting_time`, `get_calendar_context`, `list_proposals`, `get_proposal`, `get_availability_rules`, `list_webhooks`, `get_webhook`, `list_webhook_deliveries`, `list_ical_subscriptions`, `get_ical_subscription`, `list_scoped_keys`, `get_audit_log`, `get_usage`
 
