@@ -45,12 +45,13 @@ Every webhook delivery includes:
 | Header | Description |
 |--------|-------------|
 | `X-Signature` | HMAC-SHA256 signature: `sha256=<hex>` |
+| `X-Signature-Previous` | Only while an old secret is still valid after a secret rotation: the same signature computed with the old secret |
 | `X-Timestamp` | Unix timestamp (seconds) when the payload was signed |
 | `Content-Type` | `application/json` |
 
 ## Signature Verification
 
-The signature is computed over `{timestamp}.{rawBody}` using the webhook's signing secret (`whsec_...`).
+The signature is computed over `{timestamp}.{rawBody}` using the webhook's signing secret (`whsec_...`). After a secret rotation (`POST /v1/webhooks/:id/secret/rotate`), and until the old secret expires, deliveries also carry `X-Signature-Previous` signed with the old secret. Accept the delivery when your secret matches either header; the SDK verifiers do this.
 
 ### TypeScript SDK
 

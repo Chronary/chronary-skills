@@ -88,7 +88,7 @@ npm install @chronary/toolkit
 | `delete_webhook` | Delete a webhook subscription. No further events will be delivered to this URL. | No | Yes |
 | `list_webhook_deliveries` | List delivery attempts for a webhook subscription, with per-status counts (pending/delivered/failed). Use this to debug failing deliveries. Requires an org-level API key. | Yes | No |
 
-### iCal Subscriptions (6 tools)
+### iCal Subscriptions (8 tools)
 
 | Tool | Description | Read-only | Requires confirmation |
 |------|-------------|-----------|-----------------------|
@@ -97,7 +97,9 @@ npm install @chronary/toolkit
 | `subscribe_ical` | Link an external iCal feed (e.g. a human's Google Calendar) to an agent's calendar so external events appear in availability calculations. Events are synced every 30 minutes. | No | Yes |
 | `update_ical_subscription` | Update an iCal subscription's label or feed URL. | No | Yes |
 | `delete_ical_subscription` | Remove an external calendar import. Previously synced events remain on the calendar. | No | Yes |
-| `sync_ical_subscription` | Trigger an immediate sync of an iCal subscription instead of waiting for the next 30-minute poll. | No | Yes |
+| `sync_ical_subscription` | Start an immediate fetch of an iCal subscription instead of waiting for the next scheduled poll. Paused feeds must be resumed first; one manual sync per feed per minute. | No | Yes |
+| `pause_ical_subscription` | Pause an iCal subscription: polls skip it until it is resumed. | No | Yes |
+| `resume_ical_subscription` | Resume a paused or failing iCal subscription and clear its last error. | No | Yes |
 
 ### Scoped Keys (3 tools)
 
@@ -124,6 +126,7 @@ npm install @chronary/toolkit
 | Tool | Description | Read-only | Requires confirmation |
 |------|-------------|-----------|-----------------------|
 | `get_usage` | Get quota and usage statistics for the current billing period. | Yes | No |
+| `get_usage_history` | Get monthly usage totals for the last 1-12 UTC months. | Yes | No |
 
 ## Framework Adapters
 
