@@ -46,6 +46,8 @@ Configuration is stored in `~/.config/chronary/config.yaml`.
 
 ### Agents
 
+> Plan note: Free allows 1 agent and 1 calendar; more need Developer or above (<https://chronary.ai/pricing>).
+
 ```bash
 chronary agents list                          # List all agents
 chronary agents list --type ai --status active # Filter by type and status
@@ -112,6 +114,8 @@ chronary webhooks delete whk_jkl012
 
 ### iCal Subscriptions
 
+> Plan note: iCal subscriptions are not included on Free; they need Developer or above.
+
 ```bash
 chronary ical list --agent-id agt_abc123
 chronary ical create --agent-id agt_abc123 \
@@ -138,6 +142,8 @@ chronary version                              # CLI version
 ```
 
 ## Scripting Patterns
+
+> Plan note: the script below creates an agent and a calendar, so on Free run it once (Free allows 1 agent, 1 calendar).
 
 ```bash
 # Create an agent and capture the ID

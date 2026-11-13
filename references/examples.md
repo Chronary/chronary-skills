@@ -12,6 +12,8 @@ const client = new Chronary({ apiKey: process.env.CHRONARY_API_KEY });
 
 ## Basic CRUD — Agents
 
+> Plan note: Free allows 1 agent. This example creates one; delete it first or use Developer or above for more. See <https://chronary.ai/pricing>.
+
 ```typescript
 // Create an AI agent
 const agent = await client.agents.create({
@@ -34,6 +36,8 @@ await client.agents.delete(agent.id);
 ```
 
 ## Calendar Management
+
+> Plan note: Free allows 1 calendar. The second and third calendars below need Developer or above.
 
 ```typescript
 // Create a calendar for an agent
@@ -115,6 +119,8 @@ for (const slot of availability.slots) {
 
 ### Cross-Agent (Find Mutual Free Time)
 
+> Plan note: cross-calendar availability needs Pro.
+
 ```typescript
 const mutual = await client.availability.check({
   agents: ['agt_alice', 'agt_bob', 'agt_carol'],
@@ -190,6 +196,8 @@ app.post('/webhooks/chronary', express.raw({ type: 'application/json' }), async 
 
 ### Subscribe to an External Calendar
 
+> Plan note: iCal subscriptions are not included on Free; they need Developer or above.
+
 ```typescript
 // Import a Google Calendar
 const sub = await client.icalSubscriptions.create(agent.id, {
@@ -222,6 +230,8 @@ console.log(`Add to Google Calendar: ${cal.ical_url}`);
 ```
 
 ## Multi-Agent Calendar Management
+
+> Plan note: this example creates 3 agents and 3 calendars, so it needs Developer or above (Free has 1 agent, 1 calendar).
 
 ```typescript
 // Create agents for a team
