@@ -62,12 +62,12 @@ npm install @chronary/toolkit
 
 | Tool | Description | Read-only | Requires confirmation |
 |------|-------------|-----------|-----------------------|
-| `create_proposal` | Create a scheduling proposal — send candidate time slots to one or more participant agents so they can accept, decline, or counter-propose. Requires an org-level API key. Pro plan only. | No | Yes |
+| `create_proposal` | Create a scheduling proposal — send candidate time slots to one or more participant agents so they can accept, decline, or counter-propose. Requires an org-level API key and a Developer or Pro plan. | No | Yes |
 | `list_proposals` | List scheduling proposals for the org. Filter by status or organizer_agent_id. Requires an org-level API key. | Yes | No |
 | `get_proposal` | Get a scheduling proposal by id, including its slots and per-participant responses. Requires an org-level API key. | Yes | No |
-| `respond_to_proposal` | Submit a response (accept / decline / counter) on behalf of one participant agent to an open proposal. Requires an org-level API key. Pro plan only. | No | Yes |
-| `resolve_proposal` | Force-resolve an open proposal using responses collected so far. Picks the highest-scoring slot and creates a confirmed calendar event. Requires an org-level API key. Pro plan only. | No | Yes |
-| `cancel_proposal` | Cancel an open proposal. Fires a proposal.cancelled webhook with reason="organizer_cancelled". Requires an org-level API key. Pro plan only. | No | Yes |
+| `respond_to_proposal` | Submit a response (accept / decline / counter) on behalf of one participant agent to an open proposal. Requires an org-level API key and a Developer or Pro plan. | No | Yes |
+| `resolve_proposal` | Force-resolve an open proposal using responses collected so far. Picks the highest-scoring slot and creates a confirmed calendar event. Requires an org-level API key and a Developer or Pro plan. | No | Yes |
+| `cancel_proposal` | Cancel an open proposal. Fires a proposal.cancelled webhook with reason="organizer_cancelled". Requires an org-level API key. Works on every plan. | No | Yes |
 
 ### Availability Rules (3 tools)
 
