@@ -143,4 +143,4 @@ npx -y @chronary/mcp --tools list_calendars,create_event,find_meeting_time
 }
 ```
 
-**Rate limit errors** — The API allows 10 requests per second per key. If running multiple MCP clients with the same key, consider using separate keys.
+**Rate limit errors** — The API allows 10 requests per second per key on Free (25 on Developer, 50 on Pro). If running multiple MCP clients with the same key, consider using separate keys.

@@ -119,7 +119,7 @@ for (const slot of availability.slots) {
 
 ### Cross-Agent (Find Mutual Free Time)
 
-> Plan note: cross-calendar availability needs Pro.
+> Plan note: cross-calendar availability needs a Developer or Pro plan.
 
 ```typescript
 const mutual = await client.availability.check({

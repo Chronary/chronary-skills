@@ -197,7 +197,7 @@ proposal.cancelled     — Proposal cancelled
 | 401 | Invalid or missing API key |
 | 404 | Resource not found (check ID and org scope) |
 | 422 | Unprocessable — valid format but business rule violation |
-| 429 | Rate limited (10 req/sec per key) or monthly quota exceeded |
+| 429 | Rate limited (per API key: Free 10, Developer 25, Pro 50 req/sec) or monthly quota exceeded |
 | 500 | Server error — retry with backoff |
 
 Error response format:
@@ -228,6 +228,6 @@ Use `limit` (max 200) and `offset` query parameters to paginate.
 
 ## Rate Limits
 
-- 10 requests per second per API key
+- Per API key: 10 requests/second on Free, 25 on Developer, 50 on Pro
 - Monthly quotas vary by plan (check `GET /v1/usage`)
 - HTTP 429 responses include a `Retry-After` header
