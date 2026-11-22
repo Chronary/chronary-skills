@@ -21,7 +21,7 @@ npm install @chronary/toolkit
 | `get_calendar` | Get a calendar by its ID, including its name, timezone, and iCal feed URL. | Yes | No |
 | `create_calendar` | Create a new calendar. Specify a name and IANA timezone. Optionally scope it to an agent. | No | Yes |
 | `update_calendar` | Update a calendar's name, timezone, or metadata. | No | Yes |
-| `delete_calendar` | Permanently delete a calendar and all its events. | No | Yes |
+| `delete_calendar` | Permanently delete a calendar, all its events and its booking pages (their links stop working). | No | Yes |
 
 ### Events (7 tools)
 
