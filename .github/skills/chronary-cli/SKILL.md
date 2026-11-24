@@ -44,6 +44,8 @@ Configuration is stored in `~/.config/chronary/config.yaml`.
 
 ## Commands
 
+Delete commands ask for confirmation. With no terminal (scripts, CI, agent tool calls) the prompt cannot run, so the command exits 1 and sends nothing: always pass `--yes` when you mean to delete.
+
 ### Agents
 
 > Plan note: Free allows 1 agent and 1 calendar; more need Developer or above (<https://chronary.ai/pricing>).
@@ -54,7 +56,7 @@ chronary agents list --type ai --status active # Filter by type and status
 chronary agents create --name "Support Bot" --type ai
 chronary agents get agt_abc123
 chronary agents update agt_abc123 --name "New Name"
-chronary agents delete agt_abc123
+chronary agents delete agt_abc123 --yes
 ```
 
 ### Calendars
@@ -66,7 +68,7 @@ chronary calendars create --name "Work" --timezone "America/New_York"
 chronary calendars create --name "Meetings" --timezone "UTC" --agent-id agt_abc123
 chronary calendars get cal_def456
 chronary calendars update cal_def456 --name "Updated Name"
-chronary calendars delete cal_def456
+chronary calendars delete cal_def456 --yes
 ```
 
 ### Events
@@ -80,7 +82,7 @@ chronary events create --calendar-id cal_def456 \
   --end-time "2026-04-16T09:30:00Z"
 chronary events get evt_ghi789
 chronary events update evt_ghi789 --status cancelled
-chronary events delete evt_ghi789
+chronary events delete evt_ghi789 --yes
 ```
 
 ### Availability
@@ -109,7 +111,7 @@ chronary webhooks create --url "https://example.com/hook" \
   --events event.created,event.updated
 chronary webhooks get whk_jkl012
 chronary webhooks update whk_jkl012 --active false
-chronary webhooks delete whk_jkl012
+chronary webhooks delete whk_jkl012 --yes
 ```
 
 ### iCal Subscriptions
@@ -124,7 +126,7 @@ chronary ical create --agent-id agt_abc123 \
   --label "Google Calendar"
 chronary ical get ics_mno345
 chronary ical update ics_mno345 --label "Personal Google"
-chronary ical delete ics_mno345
+chronary ical delete ics_mno345 --yes
 ```
 
 ### Usage

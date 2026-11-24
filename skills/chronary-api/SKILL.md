@@ -195,8 +195,9 @@ proposal.cancelled     — Proposal cancelled
 |--------|---------|
 | 400 | Validation error — check request body against schema |
 | 401 | Invalid or missing API key |
+| 403 | Forbidden — the key or the plan does not allow this (see `error.type`) |
 | 404 | Resource not found (check ID and org scope) |
-| 422 | Unprocessable — valid format but business rule violation |
+| 409 | Conflict — valid request that clashes with the resource's current state |
 | 429 | Rate limited (per API key: Free 10, Developer 25, Pro 50 req/sec) or monthly quota exceeded |
 | 500 | Server error — retry with backoff |
 

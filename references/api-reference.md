@@ -238,7 +238,7 @@ try {
   } else if (err instanceof AuthenticationError) {
     // 401 — bad API key
   } else if (err instanceof ValidationError) {
-    // 422 — invalid request
+    // 400 — invalid request
   }
 }
 ```
