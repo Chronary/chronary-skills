@@ -44,14 +44,19 @@ Every webhook delivery includes:
 
 | Header | Description |
 |--------|-------------|
-| `X-Signature` | HMAC-SHA256 signature: `sha256=<hex>` |
-| `X-Signature-Previous` | Only while an old secret is still valid after a secret rotation: the same signature computed with the old secret |
+| `X-Signature-V2` | HMAC-SHA256 signature `sha256=<hex>` over the body and the timestamp, delivery id, event type, test flag and replay-of headers. Verify this one |
+| `X-Signature-V2-Previous` | Only while an old secret is still valid after a secret rotation: the same v2 signature computed with the old secret |
+| `X-Signature` / `X-Signature-Previous` | Deprecated v1 signature over `{timestamp}.{rawBody}` only; it does not cover the headers below |
 | `X-Timestamp` | Unix timestamp (seconds) when the payload was signed |
+| `X-Delivery-Id` | Delivery id (`whd_...`); retries reuse it, so deduplicate on it |
+| `X-Chronary-Event-Type` | The event type, e.g. `event.created` |
+| `X-Chronary-Test` | `1` on a test send; absent otherwise |
+| `X-Chronary-Replay-Of` | On a replay: the original delivery id; absent otherwise |
 | `Content-Type` | `application/json` |
 
 ## Signature Verification
 
-The signature is computed over `{timestamp}.{rawBody}` using the webhook's signing secret (`whsec_...`). After a secret rotation (`POST /v1/webhooks/:id/secret/rotate`), and until the old secret expires, deliveries also carry `X-Signature-Previous` signed with the old secret. Accept the delivery when your secret matches either header; the SDK verifiers do this.
+`X-Signature-V2` is an HMAC-SHA256 with the webhook's signing secret (`whsec_...`) over seven fields joined by `\n`: `v2`, `X-Timestamp`, `X-Delivery-Id`, `X-Chronary-Event-Type`, `1` or `0` for `X-Chronary-Test`, `X-Chronary-Replay-Of` (empty when absent), and the raw body. Because the headers are signed, a captured delivery cannot be re-sent as another event type, with a new delivery id, or without its test flag. After a secret rotation (`POST /v1/webhooks/:id/secret/rotate`), and until the old secret expires, deliveries also carry `X-Signature-V2-Previous` signed with the old secret. Accept the delivery when your secret matches either header; the SDK verifiers do this and never fall back to the deprecated v1 `X-Signature`.
 
 ### TypeScript SDK
 
@@ -65,8 +70,9 @@ const event = await Chronary.webhooks.constructEvent(
   'whsec_...',       // signing secret from webhook creation
 );
 
-console.log(event.type); // 'event.created'
-console.log(event.data); // event payload
+console.log(event.type);       // 'event.created'
+console.log(event.data);       // event payload
+console.log(event.deliveryId); // 'whd_...', signed: deduplicate on it
 ```
 
 ### Manual Verification
@@ -74,21 +80,40 @@ console.log(event.data); // event payload
 ```typescript
 import crypto from 'node:crypto';
 
-function verify(rawBody: string, headers: Record<string, string>, secret: string): boolean {
-  const signature = headers['x-signature'];
-  const timestamp = headers['x-timestamp'];
+// headers: lower-case header names. Pass X-Signature-V2-Previous as `signature`
+// for a second try during a secret rotation.
+function verify(
+  rawBody: string,
+  headers: Record<string, string | undefined>,
+  secret: string,
+  signature = headers['x-signature-v2'],
+): boolean {
+  const timestamp = headers['x-timestamp'] ?? '';
+  const test = headers['x-chronary-test'] ?? '';
+  if (!signature || (test !== '' && test !== '1')) return false;
 
   // Check timestamp is within 5 minutes
-  const age = Math.abs(Date.now() - parseInt(timestamp) * 1000);
-  if (age > 5 * 60 * 1000) return false;
+  const age = Math.abs(Date.now() - parseInt(timestamp, 10) * 1000);
+  if (!(age <= 5 * 60 * 1000)) return false;
 
-  // Compute expected signature
+  const fields = [
+    timestamp,
+    headers['x-delivery-id'] ?? '',
+    headers['x-chronary-event-type'] ?? '',
+    test === '1' ? '1' : '0',
+    headers['x-chronary-replay-of'] ?? '',
+  ];
+  if (!fields[1] || !fields[2] || fields.some((f) => /[\r\n]/.test(f))) return false;
+
+  // Compute expected signature over the v2 message
   const expected = 'sha256=' + crypto
     .createHmac('sha256', secret)
-    .update(`${timestamp}.${rawBody}`)
+    .update(['v2', ...fields, rawBody].join('\n'))
     .digest('hex');
 
-  return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(signature));
+  const a = Buffer.from(expected);
+  const b = Buffer.from(signature);
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 ```
 

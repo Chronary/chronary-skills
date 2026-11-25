@@ -140,7 +140,7 @@ Response returns `{ slots: [{ start, end }] }` — each slot is an available tim
 | PATCH | `/v1/webhooks/{id}` | Update URL, events, or active status |
 | DELETE | `/v1/webhooks/{id}` | Delete a webhook subscription |
 
-Payloads are signed with HMAC-SHA256. Verify using the `X-Signature` and `X-Timestamp` headers.
+Payloads are signed with HMAC-SHA256. Verify the `X-Signature-V2` header (it also covers `X-Timestamp`, `X-Delivery-Id`, `X-Chronary-Event-Type`, `X-Chronary-Test` and `X-Chronary-Replay-Of`) with the SDK's `verifySignature` / `verify_signature` / `VerifySignature`. The older `X-Signature` is deprecated.
 
 ### iCal Subscriptions
 
