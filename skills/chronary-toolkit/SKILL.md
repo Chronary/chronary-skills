@@ -17,7 +17,7 @@ npm install @chronary/toolkit
 
 | Tool | Description | Read-only | Requires confirmation |
 |------|-------------|-----------|-----------------------|
-| `list_calendars` | List calendars, optionally filtered by agent. Returns paginated results. | Yes | No |
+| `list_calendars` | List calendars, newest first. Organization keys get shared calendars by default; pass `include: "all"` for every agent's, or `agent_id` for one agent's. Page with `next_cursor`. | Yes | No |
 | `get_calendar` | Get a calendar by its ID, including its name, timezone, and iCal feed URL. | Yes | No |
 | `create_calendar` | Create a new calendar. Specify a name and IANA timezone. Optionally scope it to an agent. | No | Yes |
 | `update_calendar` | Update a calendar's name, timezone, or metadata. | No | Yes |
@@ -40,7 +40,7 @@ npm install @chronary/toolkit
 | Tool | Description | Read-only | Requires confirmation |
 |------|-------------|-----------|-----------------------|
 | `create_agent` | Register your agent (AI assistant, human participant, or resource) with Chronary so it can own calendars, events, and webhooks. | No | Yes |
-| `list_agents` | List all agents in your organization. Returns paginated results. | Yes | No |
+| `list_agents` | List the agents in your organization, newest first. Decommissioned agents are left out unless `include_decommissioned` is true or `status` is set. Page with `next_cursor`. | Yes | No |
 | `get_agent` | Fetch a single agent by ID. An agent represents an AI assistant, human, or shared resource (e.g. a meeting room). | Yes | No |
 | `update_agent` | Update an agent's name, description, metadata, or status (active/paused). Requires an org-level API key. | No | Yes |
 | `delete_agent` | Decommission an agent. This marks the agent as decommissioned and revokes all of its scoped API keys. Requires an org-level API key. | No | Yes |
